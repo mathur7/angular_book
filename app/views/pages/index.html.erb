@@ -1,0 +1,32 @@
+
+<h1>Book App</h1>
+
+<div ng-controller="BooksCtrl">
+
+  <form ng-submit= "addBook()">
+    <input type = "text" ng-model="newBook.Title" placeholder="Title">
+    <input type = "text" ng-model="newBook.Author" placeholder="Author">
+    <input type = "text" ng-model="newBook.Description" placeholder="Description">
+    <button>Add Book</button>
+  </form>
+
+  <ul ng-repeat="book in books">
+    <!-- this is where you should put your edit form -->
+  <li>{{book.Title}} - {{book.Author}} - {{Book.Description}} <button ng-click="deleteBook()">Delete</button>
+  <span ng-hide="editing" ng-click="editing = true"><button>Edit</button></span>
+  <form ng-show="editing" ng-submit="updateBook()">
+    
+    <input type="text" ng-model="book.Title" placeholder="Title" ng-required/>
+    
+    <input type="text" ng-model="book.Author" placeholder="Author" ng-required/>
+
+    <input type="text" ng-model="book.Isbn" placeholder="ISBN" ng-required/>
+
+    <input type="text" ng-model="book.Description" placeholder="Description" ng-required/>
+
+    <button>Update</button>
+    
+   </form>
+   </li> 
+  </ul>
+</div>
